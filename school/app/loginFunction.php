@@ -1,13 +1,11 @@
-<?php 
+<?php
 session_start();
 
 if (isset($_POST['username']) && isset($_POST['pass'])) {
 
     include "../conn.php";
-    
     $username = $_POST['username'];
     $pass = $_POST['pass'];
-
 
     if (empty($username)) {
         $em  = "Username is required";
@@ -22,16 +20,12 @@ if (isset($_POST['username']) && isset($_POST['pass'])) {
         $stmt = $conn->prepare($sql);
         $stmt->execute([$username]);
 
-        
         if ($stmt->rowCount() == 1) {
             $user = $stmt->fetch();
-            //$storedName = $user['name']; 
-            //$storedSurname = $user['surname'];
-            $storedUsername = $user['username']; 
+            $storedUsername = $user['username'];
             $storedPassword = $user['password'];
             $role = $user['role'];
             $id = $user['id'];
-           
             if ($storedUsername === $username) {
                 if (password_verify($pass, $storedPassword)) {
                     $_SESSION['id'] = $id;
@@ -39,28 +33,22 @@ if (isset($_POST['username']) && isset($_POST['pass'])) {
                     $_SESSION['role'] = $role;
                     //$_SESSION['name'] = $storedName;
                     //$_SESSION['surname'] = $storedSurname;
-                    
-                    
                     header("Location: ../home.php");
-                    exit;
                 } else {
                     $em  = "Incorrect Username or Password";
                     header("Location: ../login.php?error=$em");
-                    exit;       
                 }
             } else {
                 $em  = "Incorrect Username or Password";
                 header("Location: ../login.php?error=$em");
-                exit; 
             }
         } else {
             $em  = "Incorrect Username or Password";
             header("Location: ../login.php?error=$em");
-            exit;
-        }  
+        }
+        exit;
     }
 } else {
     header("Location: ../login.php");
     exit;
 }
-?>
