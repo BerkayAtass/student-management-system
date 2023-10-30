@@ -4,8 +4,8 @@ A scenario of a school's IT system
 --------------------------------------------------  ENGLISH  ----------------------------------------------------
 
 Admin account:
-username: admin
-password: aa
+-username: admin
+-password: aa
 
 This project was prepared by Berkay Atas for YAVUZLAR web security team. The aim of the project is to create a student tracking system. Features of the project:
 - Admin, teacher and student roles have different authorities in the project
@@ -24,8 +24,8 @@ https://www.youtube.com/watch?v=uFVXx5b9AUg
 --------------------------------------------------  TURKCE  ----------------------------------------------------
 
 Admin Hesabi:
-username: admin
-password: aa
+-username: admin
+-password: aa
 
 Bu proje YAVUZLAR web guvenligi takimi icin berkay atas tarafindan hazirlanmistir. Projenin amaci bir ogrenci takip sistemi olusturmaktir. Projenin ozellikleri :
 - Projede admin, ogretmen ve ogrenci rolunun farkli yetkileri vardir
